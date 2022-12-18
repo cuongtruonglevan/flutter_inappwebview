@@ -1446,6 +1446,17 @@ public class InAppWebView: WKWebView, UIScrollViewDelegate, WKUIDelegate, WKNavi
         
         return result;
     }
+
+    @available(iOS 15, *)
+    public func webView(
+        _ webView: WKWebView,
+        requestMediaCapturePermissionFor origin: WKSecurityOrigin,
+        initiatedByFrame frame: WKFrameInfo,
+        type: WKMediaCaptureType,
+        decisionHandler: @escaping (WKPermissionDecision) -> Void
+    ) {
+        decisionHandler(.grant)
+    }
     
     @available(iOS 13.0, *)
     public func webView(_ webView: WKWebView,
